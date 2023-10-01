@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:prototype/widgets/common/more_click.dart';
+import 'package:prototype/widgets/common/more_click_new.dart';
 import 'package:prototype/widgets/common/text_widget.dart';
 
 class FinalTop extends StatelessWidget {
@@ -32,14 +34,7 @@ class FinalTop extends StatelessWidget {
               fontSize: 28,
               fontWeight: FontWeight.bold),
         ),
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 30),
-          child: const TextWidget(
-              text: "로그인 하기 >",
-              textColor: Colors.white,
-              fontSize: 17,
-              fontWeight: FontWeight.w300),
-        ),
+        const MoreClickWidgetNew(content: "로그인 하기", fontSize: 17),
       ],
     );
   }

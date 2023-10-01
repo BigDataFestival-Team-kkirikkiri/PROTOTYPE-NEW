@@ -54,14 +54,14 @@ class RankTitlePersonal extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               const TextWidget(
-                  text: "나의 퀴즈 정답률을 랭킹으로 나눠서 보여드려요 !",
+                  text: "개인 퀴즈 정답률이 높으면",
                   textColor: Colors.black,
-                  fontSize: 18,
+                  fontSize: 22,
                   fontWeight: FontWeight.bold),
               const TextWidget(
-                  text: "매주 루키이상의 등급에겐 주식을 제공합니다",
+                  text: "인기 종목 주식을 받을 수 있어요 !",
                   textColor: Colors.black,
-                  fontSize: 18,
+                  fontSize: 22,
                   fontWeight: FontWeight.bold),
               const SizedBox(
                 height: 3,
@@ -69,7 +69,7 @@ class RankTitlePersonal extends StatelessWidget {
               const TextWidget(
                   text: "매주 '루키'이상의 등급 달성 시, 소수점 주식이 지급됩니다.",
                   textColor: Color(0xff48535B),
-                  fontSize: 13,
+                  fontSize: 14,
                   fontWeight: FontWeight.bold)
             ],
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prototype/screens/mstock.dart';
 import 'package:prototype/widgets/common/text_widget.dart';
 import 'package:prototype/widgets/common/text_widget_center.dart';
 import 'package:prototype/widgets/new/danger/danger_content_new.dart';
@@ -20,20 +21,18 @@ class MainServiceNew extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         // title: const Text('Main Service'),
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.transparent,
         foregroundColor: Colors.white,
-        elevation: 2,
+        elevation: 0,
       ),
+      extendBodyBehindAppBar: true, //body 위에 appbar,
       body: SingleChildScrollView(
         child: Column(
           children: [
             /*main 최상단*/
             const FinalTop(),
             const FinalTop2(),
-            Container(
-              color: Colors.black,
-              height: 20,
-            ),
+
             /*1. K-POP 종목 위험도 평가*/
             const DangerTitleContainerNew(),
             const DangerContentNew(),
@@ -52,7 +51,7 @@ class MainServiceNew extends StatelessWidget {
             /*투자 유형 분석 끝 */
 
             /*3. 그룹별 랭킹 */
-            const RankTitleGroup(title1: "투자유형별 정답률 순위", fontSize: 17),
+            const RankTitleGroup(title1: "그룹별 퀴즈 정답률 랭킹", fontSize: 17),
             const RankGroup(),
             /*그룹별 랭킹 끝*/
 
@@ -80,12 +79,12 @@ class MainServiceNew extends StatelessWidget {
                       TextWidget(
                           text: "M-STOCK",
                           textColor: Colors.white,
-                          fontSize: 22,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold),
                       TextWidget(
                           text: " 에서 제공하는",
                           textColor: Colors.black,
-                          fontSize: 22,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold),
                     ],
                   ),
@@ -95,7 +94,7 @@ class MainServiceNew extends StatelessWidget {
                       TextWidget(
                           text: "다양한 혜택을 확인 하세요 !",
                           textColor: Colors.black,
-                          fontSize: 22,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold),
                     ],
                   ),
@@ -103,35 +102,36 @@ class MainServiceNew extends StatelessWidget {
                     height: 10,
                   ),
                   ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          elevation: 20,
-                          shadowColor: Colors.black,
-                          foregroundColor: Colors.black,
-                          backgroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20))),
-                      onPressed: () => Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const MainServiceNew(),
-                            ),
-                          ),
-                      child: Container(
-                        width: MediaQuery.of(context).size.width * 0.5,
-                        height: 50,
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(10),
-                          ),
+                    style: ElevatedButton.styleFrom(
+                        elevation: 20,
+                        shadowColor: Colors.black,
+                        foregroundColor: Colors.black,
+                        backgroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20))),
+                    onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const MstockService(),
+                      ),
+                    ),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width * 0.5,
+                      height: 50,
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10),
                         ),
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 5, horizontal: 5),
-                        child: const TextWidgetCenter(
-                            text: "혜택 확인하기",
-                            textColor: Colors.black,
-                            fontSize: 13,
-                            fontWeight: FontWeight.bold),
-                      ))
+                      ),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 5, horizontal: 5),
+                      child: const TextWidgetCenter(
+                          text: "혜택 확인하기",
+                          textColor: Colors.black,
+                          fontSize: 13,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  )
                 ],
               ),
             ),

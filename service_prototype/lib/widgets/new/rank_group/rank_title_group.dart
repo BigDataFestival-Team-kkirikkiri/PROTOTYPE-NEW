@@ -20,7 +20,7 @@ class RankTitleGroup extends StatelessWidget {
           topRight: Radius.circular(20),
         ),
       ),
-      padding: const EdgeInsets.only(left: 30, top: 20, bottom: 10),
+      padding: const EdgeInsets.only(left: 35, top: 20, bottom: 10),
       child: Column(
         children: [
           Row(
@@ -54,14 +54,14 @@ class RankTitleGroup extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           const TextWidget(
-              text: "투자유형별로 정답률 순위를 확인하세요 !",
+              text: "나의 그룹이 1등이 되면",
               textColor: Colors.black,
-              fontSize: 18,
+              fontSize: 22,
               fontWeight: FontWeight.bold),
           const TextWidget(
-              text: "월별로 1등 투자유형에게는 리워드가 제공됩니다",
+              text: "다양한 혜택과 상품을 받을 수 있어요 !",
               textColor: Colors.black,
-              fontSize: 18,
+              fontSize: 22,
               fontWeight: FontWeight.bold),
           const SizedBox(
             height: 5,
@@ -69,7 +69,7 @@ class RankTitleGroup extends StatelessWidget {
           const TextWidget(
               text: "랭킹은 매월 초기화됩니다.",
               textColor: Color(0xff48535B),
-              fontSize: 14,
+              fontSize: 16,
               fontWeight: FontWeight.bold),
           const SizedBox(
             height: 15,

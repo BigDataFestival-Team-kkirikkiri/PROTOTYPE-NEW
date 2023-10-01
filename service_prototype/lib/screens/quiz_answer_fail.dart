@@ -2,24 +2,25 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:prototype/screens/quiz_fail.dart';
 import 'package:prototype/screens/quiz_reward.dart';
 import 'package:prototype/widgets/common/text_widget.dart';
 import 'package:prototype/widgets/common/text_widget_center.dart';
 
-class QuizAnswer extends StatefulWidget {
-  const QuizAnswer({super.key});
+class QuizAnswerFail extends StatefulWidget {
+  const QuizAnswerFail({super.key});
 
   @override
-  State<QuizAnswer> createState() => _QuizAnswerState();
+  State<QuizAnswerFail> createState() => _QuizAnswerState();
 }
 
-class _QuizAnswerState extends State<QuizAnswer> {
+class _QuizAnswerState extends State<QuizAnswerFail> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 8), () {
+    Timer(const Duration(seconds: 5), () {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => const QuizReward()));
+          context, MaterialPageRoute(builder: (context) => const QuizFail()));
     });
   }
 

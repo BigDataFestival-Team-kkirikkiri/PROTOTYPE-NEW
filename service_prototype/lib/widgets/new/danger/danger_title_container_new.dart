@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:prototype/widgets/common/more_rate.dart';
+import 'package:prototype/widgets/common/more_click.dart';
 import 'package:prototype/widgets/common/text_widget.dart';
 import 'package:prototype/widgets/new/title/danger_title_new.dart';
 

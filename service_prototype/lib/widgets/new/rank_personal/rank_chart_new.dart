@@ -6,7 +6,6 @@ class RankChartNew extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<ChartData> chartData = [
-      ChartData(DateTime(2022, 12), 1),
       ChartData(DateTime(2023, 1), 1),
       ChartData(DateTime(2023, 2), 2),
       ChartData(DateTime(2023, 3), 3),

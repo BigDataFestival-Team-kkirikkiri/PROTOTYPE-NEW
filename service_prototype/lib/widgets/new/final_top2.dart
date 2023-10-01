@@ -1,5 +1,10 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:lottie/lottie.dart';
 import 'package:prototype/screens/quiz_answer.dart';
+import 'package:prototype/screens/quiz_answer_fail.dart';
 import 'package:prototype/screens/quiz_service.dart';
 import 'package:prototype/widgets/common/space.dart';
 import 'package:prototype/widgets/common/text_widget.dart';
@@ -25,28 +30,33 @@ class FinalTop2 extends StatelessWidget {
             ),
           ),
           Positioned(
-              top: 330,
-              left: 110,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.black,
-                  backgroundColor: Colors.white,
-                ),
-                onPressed: () {
-                  showQuizDialog(context);
-                },
-                child: Container(
-                  width: 250,
-                  height: 60,
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
-                  child: const TextWidgetCenter(
-                      text: "주식 예측 퀴즈 풀고 상품 받기",
-                      textColor: Color(0xffF58220),
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold),
-                ),
-              ))
+            top: 330,
+            left: 110,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.black,
+                backgroundColor: Colors.white,
+              ),
+              onPressed: () {
+                showQuizDialog(context);
+              },
+              child: Container(
+                width: 250,
+                height: 60,
+                padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+                child: const TextWidgetCenter(
+                    text: "주가 예측 퀴즈 풀고 상품 받기",
+                    textColor: Color(0xffF58220),
+                    fontSize: 15.5,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 305,
+            left: 300,
+            child: Lottie.asset('images/click.json', width: 150),
+          ),
         ],
       ),
     );
@@ -59,12 +69,11 @@ class FinalTop2 extends StatelessWidget {
 ///
 ///
 
-String format(int seconds) {
-  var duration = Duration(seconds: seconds);
-  return duration.toString().split(".").first;
-}
-
 void showQuizDialog(BuildContext context) {
+  DateTime now = DateTime.now();
+  String formattedDate = DateFormat('yyyy년 MM월 dd일').format(now);
+  String formattedTime = DateFormat('HH:MM:ss').format(now);
+
   showDialog(
     context: context,
     // barrierDismissible: false, // Dialog를 탭하여 닫을 수 없도록 설정
@@ -76,85 +85,78 @@ void showQuizDialog(BuildContext context) {
               const SpaceWidget(spaceHeight: 170, spaceWidth: 100),
               AlertDialog(
                 shape: const RoundedRectangleBorder(
+                  side: BorderSide(color: Colors.white, width: 0.7),
                   borderRadius: BorderRadius.all(
                     Radius.circular(20),
                   ),
                 ),
-                backgroundColor: Colors.grey[850],
-                title: const Column(
+                backgroundColor: Colors.black,
+                title: Column(
                   children: [
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        TextWidget(
-                            text: "일간 퀴즈",
-                            textColor: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold),
-                        SizedBox(width: 10),
-                        TextWidget(
-                            text: "12:00",
-                            textColor: Colors.orange,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const TextWidget(
+                                text: "주가 예측 퀴즈",
+                                textColor: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold),
+                            TextWidget(
+                                text: formattedDate,
+                                textColor: Colors.white,
+                                fontSize: 13,
+                                fontWeight: FontWeight.w400)
+                          ],
+                        ),
+                        const SizedBox(width: 10),
+                        Stack(
+                          children: [
+                            const SizedBox(
+                              height: 50,
+                              width: 150,
+                            ),
+                            Positioned(
+                              left: -5,
+                              top: -25,
+                              child:
+                                  Lottie.asset('images/bell.json', width: 100),
+                            ),
+                            Positioned(
+                              top: 10,
+                              left: 60,
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 10, vertical: 3),
+                                decoration: BoxDecoration(
+                                    // color: const Color(0xffFFF9C2),
+                                    borderRadius: BorderRadius.circular(10)),
+                                child: TextWidget(
+                                    text: formattedTime,
+                                    textColor: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ],
+                        ),
                       ],
                     ),
-                    TextWidget(
-                        text: "tmp",
-                        textColor: Colors.white,
-                        fontSize: 13,
-                        fontWeight: FontWeight.w400)
                   ],
                 ),
                 content: Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        CircleAvatar(
-                            radius: 15,
-                            backgroundImage: AssetImage('images/hybe.png')),
-                        SizedBox(width: 10),
-                        TextWidget(
-                            text: "'하이브' 의 현재 주가는",
-                            textColor: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold)
-                      ],
-                    ),
-                    const SizedBox(height: 5),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const TextWidget(
-                            text: "271,000",
-                            textColor: Colors.red,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold),
-                        const SizedBox(width: 10),
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 1, horizontal: 10),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            color: Colors.red.withOpacity(0.2),
-                          ),
-                          child: const Text("+ 3.44%",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w500)),
-                        ),
-                      ],
-                    ),
                     const SizedBox(
                       height: 10,
                     ),
                     Container(
                       width: 350,
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 30, vertical: 20),
+                          horizontal: 10, vertical: 0),
                       decoration: BoxDecoration(
                           color: Colors.black,
                           borderRadius: BorderRadius.circular(10)),
@@ -165,56 +167,125 @@ void showQuizDialog(BuildContext context) {
                               TextWidget(
                                   text: "Mstock",
                                   textColor: Colors.orange,
-                                  fontSize: 18,
+                                  fontSize: 20,
                                   fontWeight: FontWeight.bold),
                               TextWidget(
                                   text: " AI가 예측한",
                                   textColor: Colors.white,
-                                  fontSize: 15,
+                                  fontSize: 18,
                                   fontWeight: FontWeight.bold),
                             ],
                           ),
                           const TextWidget(
                               text: "내일의 하이브의 주가는 상승할까, 하락할까?",
                               textColor: Colors.white,
-                              fontSize: 15,
+                              fontSize: 18,
                               fontWeight: FontWeight.bold),
                           const SizedBox(height: 20),
-                          SizedBox(
-                            height: 30,
-                            width: 300,
-                            child: OutlinedButton(
-                              style: OutlinedButton.styleFrom(
-                                  backgroundColor: Colors.grey[850],
-                                  side: const BorderSide(color: Colors.orange),
-                                  foregroundColor: Colors.white),
-                              onPressed: () => Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const QuizAnswer(),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const SizedBox(width: 35),
+                              SizedBox(
+                                height: 90,
+                                width: 90,
+                                child: OutlinedButton(
+                                  style: OutlinedButton.styleFrom(
+                                      shape: const RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.all(
+                                          Radius.circular(15),
+                                        ),
+                                      ),
+                                      backgroundColor: const Color(0xffFAC3BF),
+                                      side: const BorderSide(
+                                        color: Color(0xffFAC3BF),
+                                      ),
+                                      foregroundColor: Colors.black),
+                                  onPressed: () => Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const QuizAnswer(),
+                                    ),
+                                  ),
+                                  child: const TextWidgetCenter(
+                                      text: "상승",
+                                      textColor: Colors.black,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold),
                                 ),
                               ),
-                              child: const Text('상승'),
-                            ),
-                          ),
-                          const SizedBox(height: 20),
-                          SizedBox(
-                            height: 30,
-                            width: 300,
-                            child: OutlinedButton(
-                              style: OutlinedButton.styleFrom(
-                                  backgroundColor: Colors.grey[850],
-                                  side: const BorderSide(color: Colors.orange),
-                                  foregroundColor: Colors.white),
-                              onPressed: () => Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const QuizAnswer(),
+                              const SizedBox(height: 20),
+                              SizedBox(
+                                height: 90,
+                                width: 90,
+                                child: OutlinedButton(
+                                  style: OutlinedButton.styleFrom(
+                                      shape: const RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.all(
+                                          Radius.circular(15),
+                                        ),
+                                      ),
+                                      backgroundColor: const Color(0xffC8D7FF),
+                                      side: const BorderSide(
+                                          color: Color(0xffC8D7FF)),
+                                      foregroundColor: Colors.black),
+                                  onPressed: () => Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          const QuizAnswerFail(),
+                                    ),
+                                  ),
+                                  child: const TextWidgetCenter(
+                                      text: "하락",
+                                      textColor: Colors.black,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold),
                                 ),
                               ),
-                              child: const Text('하락'),
-                            ),
+                              const SizedBox(width: 35),
+                            ],
                           ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.6,
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 30, vertical: 10),
+                            decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadiusDirectional.circular(10),
+                                border:
+                                    Border.all(width: 1, color: Colors.white)),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                const TextWidget(
+                                    text: "현재 하이브의 주가는 ",
+                                    textColor: Colors.white,
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.w500),
+                                const TextWidget(
+                                    text: "270000",
+                                    textColor: Colors.red,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w500),
+                                Container(
+                                  padding: const EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                    color: Colors.red.withOpacity(0.8),
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                  child: const TextWidget(
+                                      text: "+3.44%",
+                                      textColor: Colors.white,
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w600),
+                                )
+                              ],
+                            ),
+                          )
                         ],
                       ),
                     ),

@@ -26,7 +26,7 @@ class RankGroup extends StatelessWidget {
         children: [
           const LightMaratoner(
               rate: 400,
-              ratePercent: "52%",
+              ratePercent: "82%",
               patternName: "라이트급 마라토너",
               rank: "1등"),
           const SizedBox(
@@ -34,7 +34,7 @@ class RankGroup extends StatelessWidget {
           ),
           const LightSprinter(
               rate: 250,
-              ratePercent: "38%",
+              ratePercent: "76%",
               patternName: "라이트급 스프린터",
               rank: "2등"),
           const SizedBox(
@@ -59,7 +59,7 @@ class RankGroup extends StatelessWidget {
                 left: 28,
                 child: HeavySprinter(
                     rate: 150,
-                    ratePercent: "19%",
+                    ratePercent: "43%",
                     patternName: "헤비급 스프린터",
                     rank: "3등"),
               ),
@@ -68,7 +68,7 @@ class RankGroup extends StatelessWidget {
                 top: 135,
                 child: HeavyMaratoner(
                     rate: 100,
-                    ratePercent: "12%",
+                    ratePercent: "31%",
                     patternName: "헤비급 마라토너",
                     rank: "4등"),
               ),

@@ -26,8 +26,8 @@ class PatternWidgetNew extends StatelessWidget {
       height: 300,
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
-        border: Border.all(width: 0, color: Colors.white),
-        color: Colors.white,
+        border: Border.all(width: 0, color: const Color(0xffE5E4E1)),
+        color: const Color(0xffE5E4E1),
         borderRadius: const BorderRadius.only(
           bottomLeft: Radius.circular(20),
           bottomRight: Radius.circular(20),
@@ -38,12 +38,22 @@ class PatternWidgetNew extends StatelessWidget {
           Positioned(
             top: 7,
             left: -10,
-            child: Image.asset('images/blue.png', width: 150, height: 160),
+            child: Image.asset(
+              'images/blue.png',
+              width: 150,
+              height: 160,
+              opacity: const AlwaysStoppedAnimation(0.7),
+            ),
           ),
           Positioned(
             left: 370,
             top: 140,
-            child: Image.asset('images/orange.png', width: 160, height: 170),
+            child: Image.asset(
+              'images/orange.png',
+              width: 160,
+              height: 170,
+              opacity: const AlwaysStoppedAnimation(0.7),
+            ),
           ),
           Positioned(
             left: 50,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prototype/widgets/common/containerSpace.dart';
 import 'package:prototype/widgets/common/content_color_between.dart';
-import 'package:prototype/widgets/common/more_rate.dart';
+import 'package:prototype/widgets/common/more_click.dart';
 import 'package:prototype/widgets/common/new_text.dart';
 import 'package:prototype/widgets/modal_title/danger_title.dart';
 import 'package:prototype/widgets/modal_title/pattern_title.dart';

@@ -19,10 +19,10 @@ class PatternTitleNew extends StatelessWidget {
           height: 421,
         ),
         Container(
-          height: 120,
+          height: 130,
           decoration: BoxDecoration(
-            border: Border.all(width: 0, color: Colors.white),
-            color: Colors.white,
+            border: Border.all(width: 0, color: const Color(0xffE5E4E1)),
+            color: const Color(0xffE5E4E1),
             borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(20),
               topRight: Radius.circular(20),
@@ -59,14 +59,14 @@ class PatternTitleNew extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               const TextWidget(
-                  text: "로그인하여 나의 투자 유형을 확인하고",
+                  text: "나의 투자 유형을 확인하고",
                   textColor: Colors.black,
-                  fontSize: 20,
+                  fontSize: 22,
                   fontWeight: FontWeight.bold),
               const TextWidget(
-                  text: "투자 유형 진영에 참여해보세요 !",
+                  text: "그룹 퀴즈 랭킹에 참여해보세요 !",
                   textColor: Colors.black,
-                  fontSize: 20,
+                  fontSize: 22,
                   fontWeight: FontWeight.bold)
             ],
           ),
@@ -75,19 +75,20 @@ class PatternTitleNew extends StatelessWidget {
           top: 120,
           child: PatternWidgetNew(
               title: "라이트급 마라토너",
-              titleSize: 15,
-              semiTitle: "적은 시드머니를 이용한 장기 투자를 선호합니다.",
-              semiTitleSize: 11,
-              content1: "단기 고수익 투자와 같은 모험을 즐기기보다",
-              content2: "안정적인 투자를 자향하는 투자 유형입니다.",
-              contentSize: 11),
+              titleSize: 18,
+              semiTitle: "#적은 시드머니 #장기 투자 # 안정 추구",
+              semiTitleSize: 15,
+              content1: "단기 고수익 투자와 같은 모험을 즐기기보다는",
+              content2: "안정적인 투자를 자향하는 투자 유형",
+              contentSize: 10),
         ),
         Positioned(
-          top: -35,
-          left: 350,
+          top: -40,
+          left: 360,
           child: Image.asset(
             'images/blue2.png',
             width: 230,
+            opacity: const AlwaysStoppedAnimation(0.7),
           ),
         ),
       ],

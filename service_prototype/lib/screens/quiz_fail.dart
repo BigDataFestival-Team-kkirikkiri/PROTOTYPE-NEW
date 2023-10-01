@@ -4,14 +4,14 @@ import 'package:prototype/screens/main_screen_new.dart';
 import 'package:prototype/widgets/common/text_widget.dart';
 import 'package:prototype/widgets/common/text_widget_center.dart';
 
-class QuizReward extends StatefulWidget {
-  const QuizReward({super.key});
+class QuizFail extends StatefulWidget {
+  const QuizFail({super.key});
 
   @override
-  State<QuizReward> createState() => _QuizRewardState();
+  State<QuizFail> createState() => _QuizFailState();
 }
 
-class _QuizRewardState extends State<QuizReward> {
+class _QuizFailState extends State<QuizFail> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,22 +22,30 @@ class _QuizRewardState extends State<QuizReward> {
           const SizedBox(
             height: 30,
           ),
-          LottieBuilder.asset('images/giftbox.json', width: 500),
+          LottieBuilder.asset('images/fail.json', width: 300),
           const TextWidgetCenter(
-              text: "마일리지 당첨 !",
+              text: "마일리지 획득 실패",
               textColor: Colors.black,
               fontSize: 25,
               fontWeight: FontWeight.bold),
           const SizedBox(
-            height: 30,
+            height: 25,
           ),
           const TextWidgetCenter(
-              text: "마일리지 +1 당첨 축하드려요 !",
+              text: "아쉽지만 오답이에요 ..",
               textColor: Colors.black,
               fontSize: 15,
               fontWeight: FontWeight.w600),
           const TextWidgetCenter(
-              text: "당첨 마일리지는 미레에셋 계좌를 이용하여 사용 가능해요",
+              text: "퀴즈는 매일 새로운 문제로 업데이트 됩니다",
+              textColor: Colors.black,
+              fontSize: 15,
+              fontWeight: FontWeight.w600),
+          const SizedBox(
+            height: 10,
+          ),
+          const TextWidgetCenter(
+              text: "혜택 페이지에서 다양한 이벤트를 확인해보세요 !",
               textColor: Colors.black,
               fontSize: 15,
               fontWeight: FontWeight.w600),

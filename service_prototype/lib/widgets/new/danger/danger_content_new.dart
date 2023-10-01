@@ -30,7 +30,7 @@ class DangerContentNew extends StatelessWidget {
             iconColor: Colors.yellow,
             iconSize: 15,
             entName: "JYP Ent.",
-            stockName: "201.344",
+            stockName: "201,344",
             stockRate: "+ 0.70%"),
         const DangerWidgetNew(
             bgColor: Colors.black,
